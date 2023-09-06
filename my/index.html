@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/dark.css">
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a").on('click', function (event) {
+
+                if (this.hash !== "") {
+
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+        $(window).on("load", function() {
+  $(".loader").fadeOut();
+});
+    </script>
+    <title>Mir41kk</title>
+</head>
+
+<body>
+    <div class="loader">
+        <div class="loader_inner"></div>
+      </div>
+    <background id="background"></background>
+    <header>
+        <nav class="navbar">
+            
+            <input type="checkbox" id="toggler">
+            <label for="toggler">☰</label>
+            <div class="menu">
+                <ul class="list">
+                    <li><a href="#convert">Convertor</a></li>
+                    <li><a href="#user">Registration</a></li>
+                    <li><a href="#calendar">Calendar</a></li>
+                    <li ><label class="switch">
+                            <input type="checkbox" id="toggle-mode">
+                            <span class="slider"></span>
+                        </label></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="parent">
+        <div class="left">
+            <div class="card">GTA V - fascinating game in which you can become a member of the criminal underworld and
+                immerse yourself in unforgettable adventures. There are plenty of missions to complete in the game and
+                plenty of opportunities to show off your talents in driving cars, boats and planes.
+            </div>
+        </div>
+        <div class="right"><img src="./assets/images/Franklin.webp" id="hero"></div>
+    </div>
+    <pause id="pause"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill-opacity="1"
+                d="M0,128L34.3,133.3C68.6,139,137,149,206,149.3C274.3,149,343,139,411,117.3C480,96,549,64,617,64C685.7,64,754,96,823,90.7C891.4,85,960,43,1029,32C1097.1,21,1166,43,1234,74.7C1302.9,107,1371,149,1406,170.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+            </path>
+        </svg></pause>
+    <main id="main">
+        <div class="fade text">
+            <h1>Join us and begin your exciting journey into the world of GTA V!</h1>
+            <p>You can travel around the city of Los Santos and the surrounding area, exploring its secret corners and
+                getting to know its inhabitants. The game offers plenty of opportunities to immerse yourself in its
+                world
+                and have fun playing it.
+
+                On our website you'll find a lot of useful information about GTA V such as gameplay descriptions, tips
+                and
+                tricks for passing the game and reviews from other players. We also offer news on the latest updates and
+                additions to the game to keep you up-to-date.</p>
+        </div>
+        <form id="convert">
+            <label class="conv-label" for="usd">Usd</label>
+            <input type="text" id="usd" onkeyup="convertCurrency()" onchange="convertCurrency()">
+            <label class="conv-label" for="uah">Uah</label>
+            <input type="text" id="uah" onkeyup="convertCurrency()" onchange="convertCurrency()">
+            <div id="result"></div>
+        </form>
+        <form class="form" id="user">
+            <p class="title">Register </p>
+            <div class="flex">
+                <label>
+                    <input required="" placeholder="Firstname" type="text" class="input">
+
+                </label>
+                <label>
+                    <input required="" placeholder="Secondname" type="text" class="input">
+
+                </label>
+            </div>
+
+            <label>
+                <input required="" placeholder="Email" type="email" class="input">
+
+            </label>
+
+            <label>
+                <input required="" placeholder="Password" type="password" class="input">
+
+            </label>
+            <button class="submit">Submit</button>
+
+        </form>
+
+        <br>
+        <div id="calendar"></div>
+        <br>
+        <span class="nows"></span>
+        <br>
+        <br>
+        <section class="slider-wrapper">
+            <button class="slide-arrow" id="slide-arrow-prev">
+                &#8249;
+            </button>
+            <button class="slide-arrow" id="slide-arrow-next">
+                &#8250;
+            </button>
+            <ul class="slides-container" id="slides-container">
+                <li class="slide"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+            </ul>
+        </section>
+        <span id="timers">Until the end of the promotion left:</span>
+        <div id="countdown"></div>
+        <iframe src="./canvas/canvas.html"></iframe>
+        <button onclick="Play()" id="play-button">Press to play</button>
+    </main>
+    <footer id="footer">
+        <div class="footer-grid">
+            <div class="footer-left"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.235346916161!2d36.23411937688194!3d50.00694391919769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41270a7128e334f1%3A0xc08283f0d972b4bb!2z0JrQhtCi!5e0!3m2!1sru!2sua!4v1683282330194!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="fast" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            <div class="footer-right">
+                <div class="footer-list">
+                    <a href="#convert">Convertor</a>
+                    <a href="#user">Registration</a>
+                    <a href="#calendar">Calendar</a>
+                </div>
+                 
+
+              </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
